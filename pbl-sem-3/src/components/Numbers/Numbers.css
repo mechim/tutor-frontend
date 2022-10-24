@@ -1,0 +1,30 @@
+.numbers{
+    background-color: #FDF0E9;
+    text-align: center;
+}
+.numbers-main-text{
+    font-family: 'Epilogue' sans-serif;
+    font-weight: 700;
+    color: #391400;
+    margin-bottom: 2rem;
+}
+
+
+.numbers-card{
+    background: #FDF0E9;    
+    text-align: left;
+    border-color: #39140085;
+}
+
+.numbers-card-numbers{
+    font-family: 'Epilogue' serif;
+    font-weight: bold;
+    color: #391400;
+    font-size: 2.3rem;
+}
+.numbers-card-description{
+    font-family: 'Epilogue' serif;
+    font-weight: normal;
+    color: #391400;
+    font-size: 1.3rem;
+}

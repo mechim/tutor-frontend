@@ -1,0 +1,46 @@
+.container{
+    padding: 3% 10% 7%;
+}
+/* Hero */
+.hero{
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #29293E;
+    color: white;
+}
+.hero-image{
+    padding-left: 60px;
+}
+.hero-main-text{
+    line-height: 1.1;
+    color: white;
+    font-family: 'Epilogue-Black' sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+    
+}
+.hero-main-button{
+    margin-top: 1rem;
+    width: 200px;
+    height: 60px;
+    font-family: 'Epilogue' sans-serif;
+    font-weight: 900;
+    font-size: larger;
+}
+
+/* Numbers */
+
+
+
+/* Testimonials */
+
+.reviews{
+    background-color: #FDF0E9;
+    text-align: center;
+}
+.reviews-title{
+    font-family: 'Epilogue' sans-serif;
+    font-weight: 700;
+    color: #391400;
+    margin-bottom: 2rem;
+}
