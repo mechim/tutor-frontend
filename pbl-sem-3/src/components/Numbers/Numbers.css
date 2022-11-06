@@ -1,12 +1,14 @@
 .numbers{
     background-color: #FDF0E9;
     text-align: center;
+    padding-top: 20px;
 }
 .numbers-main-text{
     font-family: 'Epilogue' sans-serif;
     font-weight: 700;
     color: #391400;
     margin-bottom: 2rem;
+    font-size: 50px;
 }
 
 

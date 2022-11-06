@@ -1,0 +1,41 @@
+.login{
+    background-color: #FDF0E9;
+}
+.loginContainer{
+    padding: 0 350px;
+}
+.loginText{
+    font-family: 'Epilogue' sans-serif;
+    font-size: 50px;
+    color: #391400;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.loginLabel{
+    font-family: 'Epilogue' sans-serif;
+    color: #391400;
+    font-size: 30px;
+}
+
+.ant-input-password, input[type=text], input[type=password]{
+    background-color: #FDF0E9;
+    padding: 0;
+    border: 1px solid #391400 ;
+    border-radius: 4px;
+}
+
+input[type=text], input[type=password]{
+    height: 40px;
+}
+
+hr{
+    margin-bottom: 40px;
+}
+.loginButtonContainer{
+    text-align: center;
+}
+.loginButton{
+    width: 150px;
+    height: 35px;
+}

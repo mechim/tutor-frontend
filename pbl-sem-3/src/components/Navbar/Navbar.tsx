@@ -14,8 +14,8 @@ function Navbar(){
                     <Col span={14}>
                         <Link to="/"><Button type="primary" className={styles.navbar_buttons}><b>Acas&#259;</b> </Button></Link>
                         <Link to="/catalog"  ><Button className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>Catalog</b></Button></Link>
-                        <Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>LOG IN</b></Button>
-                        <Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>&#206;NREGISTRARE</b></Button>
+                        <Link to ="/login" ><Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>LOGARE</b></Button></Link>
+                        <Link to ="/register"><Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>&#206;NREGISTRARE</b></Button></Link>
                     </Col>
             </Row>
         </nav>

@@ -5,7 +5,7 @@ export function Numbers(){
     return(
         <div className="numbers">
 <div className="container">
-    <h1 className="numbers-main-text">Ni&#x15F;te cifre</h1>
+    <h1 className="numbers-main-text">Ni&#x15F;te cifre:</h1>
     <Row>
         <Col span={8}>
             <Card className="numbers-card" size="small" bordered={true}>

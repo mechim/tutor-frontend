@@ -1,0 +1,35 @@
+.reviews{
+    background-color: #FDF0E9;
+    text-align: center;
+}
+.reviews-title{
+    font-family: 'Epilogue' sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    color: #391400;
+    margin-bottom: 2rem;
+}
+
+.reviewsCard{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.reviewsName{
+    font-family: 'Epilogue' sans-serif;
+    font-weight: bold;
+    color: #391400;
+    font-size: 22px;
+}
+
+.reviewsStars{
+    padding-top: 10px;
+    text-align: right;
+    color: #F6CF1E;
+}
+.reviewsText{
+    margin-top: 20px;
+    font-family: 'Epilogue' sans-serif;
+    color: #886050;
+    font-size: 20px;
+}

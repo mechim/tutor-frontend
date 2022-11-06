@@ -5,16 +5,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import { Button } from 'antd';
 import { Col, Row } from 'antd';
 import { Image } from 'antd';
-import { Card, Layout } from 'antd';
-import { useEffect } from "react";
 import axios from "axios";
-const { Header, Footer, Sider, Content } = Layout;
+import { Numbers } from "../../components/Numbers/Numbers";
+import { Reviews } from "../../components/Reviews/Reviews";
 
 function Landing(){
     
-    useEffect(()=>{
-        axios.get('https://jsonplaceholder.typicode.com/todos/2').then(res=>{console.log(res.data)})
-    },[])
+    // useEffect(()=>{
+    //     axios.get('https://jsonplaceholder.typicode.com/todos/2').then(res=>{console.log(res.data)})
+    // },[])
     
     return(
         <div>
@@ -33,20 +32,8 @@ function Landing(){
             </div>
         </div>
        
-      
-        <div className="reviews">
-            <div className="container">
-                <h1 className="reviews-title">Ce spun elevii:</h1>
-                <Row gutter={16}>
-                    <Col span={12}><Card>Alan Marti</Card></Col>
-                    <Col span={12}><Card></Card></Col>
-                </Row>
-                <Row gutter={16}>
-                    <Col span={12}><Card></Card></Col>
-                    <Col span={12}><Card></Card></Col>
-                </Row>
-            </div>
-        </div>
+    <Numbers />
+    <Reviews />
     </div>
         
         
