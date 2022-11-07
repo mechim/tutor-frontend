@@ -18,8 +18,7 @@ export function Catalog(){
     const onChange = (e: RadioChangeEvent) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
-      };
-
+    };
 
     return(
         <div className="catalog">
@@ -64,8 +63,7 @@ export function Catalog(){
                 <Content className='catalogContent'>
                     
                    <CatalogCard/>
-                   <CatalogCard/>
-                   <CatalogCard/>
+              
                     
 
                     <Pagination className='catalogPagination' size='default' defaultCurrent={1} total={50}/>

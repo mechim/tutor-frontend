@@ -1,5 +1,4 @@
-import {  createAsyncThunk, createSlice, SerializedError } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import {  createAsyncThunk, createSlice, SerializedError,PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store/store'
 import axios from 'axios'
 
@@ -29,7 +28,6 @@ export const authentification = createAsyncThunk('loginSlice/sendUser', async(id
 })
 
 // export const registration
-
 export const loginSlice = createSlice({
   name: 'login',
     // `createSlice` will infer the state type from the `initialState` argument

@@ -1,5 +1,4 @@
-import {  createAsyncThunk, createSlice, SerializedError } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import {  createAsyncThunk, createSlice, SerializedError, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store/store'
 import axios from 'axios'
 
@@ -35,12 +34,9 @@ export const registerSlice = createSlice({
     reducers:{
         create: (state: RegisterState, action: PayloadAction<string>) => {
             console.log(action.payload);
-            state.token = action.payload;
-        },
-        postUser:(state: RegisterState, action: PayloadAction<NewUser>) => {
-            state.newUser.email = action.payload.email;
-            state.newUser.password = action.payload.password;
-        },
+            state.token = action.payload;    
+        }
+
     },
     extraReducers:(builder)=>{
         builder.addCase(creation.pending, (state) => {
@@ -58,5 +54,5 @@ export const registerSlice = createSlice({
       }
 })
 
-export const {create, postUser} = registerSlice.actions;
+export const {create} = registerSlice.actions;
 export default registerSlice.reducer;

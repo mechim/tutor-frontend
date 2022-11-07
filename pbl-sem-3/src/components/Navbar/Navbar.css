@@ -17,7 +17,7 @@
 }
 
 .navbar_buttons:hover, .navbar_buttons::selection, ant-btn:focus{
-    background: #FDF0E9  !important;
+    background: rgba(255, 255, 255, 0)  !important;
     color: #391400  !important;
     border: 2 solid #391400  !important;
     --antd-wave-shadow-color: #391400  !important;

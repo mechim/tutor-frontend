@@ -1,22 +1,30 @@
 import { StarFilled } from "@ant-design/icons";
 import { Card, Button } from "antd";
+import { useAppSelector } from "../../redux-toolkit/hooks/hooks";
+import { TutorCard } from "../../redux-toolkit/slices/catalogSlice/catalogSlice";
 
 export function CatalogCard(){
-    return (
-        <Card className="catalogCard">
-                        <img className="cardImage" src="https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg" alt="" />
+
+    const {tutorsArray} = useAppSelector((state) => ({...state.tutorCard}));
+    console.log(tutorsArray);
+    return (<>
+        {tutorsArray.map(({tutorImage, tutorName, tutorSubject, id, format, rating, description, price}: TutorCard) => (
+            <Card className="catalogCard">
+                        <img className="cardImage" src={tutorImage} alt="" />
                         <div className="catalogCardContainer">
-                            <h1>John Doe</h1>
-                            <h3>Istoria</h3>
+                            <h1>{tutorName}</h1>
+                            <h3>{tutorSubject}</h3>
                             <StarFilled /><StarFilled /><StarFilled /><StarFilled /><StarFilled />
-                            <h3>Online</h3>
-                            <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi</p>
+                            <h3>{format}</h3>
+                            <p>{description}</p>
                             <a href="/">Mai multe...</a>
                         </div>
                         <div className="catalogCardPrice">
-                            <h2>100 lei/ora</h2>
+                            <h2>{price} lei/ora</h2>
                             <Button className='catalogCardButton' type="primary" danger size="large">Contacteaza</Button>
                         </div>
                     </Card>
-    )
+    ))}
+        
+        </>)
 };

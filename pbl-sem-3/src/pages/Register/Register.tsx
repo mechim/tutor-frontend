@@ -3,7 +3,7 @@ import { useForm } from "antd/lib/form/Form";
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { create, creation, postUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
+import { create, creation} from "../../redux-toolkit/slices/registerSlice/registerSlice";
 import "./Register.css"
 
 export function Register(){
@@ -18,7 +18,6 @@ export function Register(){
         
         const{email, password, confirmPassword} = await form.getFieldsValue(); 
         const user = {email, password, confirmPassword};
-        dispatch(postUser(user));
         dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
         
       };
