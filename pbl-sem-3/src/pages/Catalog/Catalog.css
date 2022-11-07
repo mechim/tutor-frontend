@@ -1,3 +1,64 @@
 .catalog{
     background-color: #FDF0E9;
 }
+.catalogCard{
+    position: relative;
+    height: 250px;
+    width: 700px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.cardImage{
+    position: absolute;
+    width: 170px;
+    left: auto;
+    top: auto;
+    border-radius: 10px;
+}
+
+.catalogCardContainer{
+    position: absolute;
+    left: 220px;
+    top: auto;
+}
+.catalogCardPrice{
+    position: absolute;
+    right: 10px;
+}
+
+.catalogSider{
+    padding-left: 100px;
+    width: 300px;
+    background-color: #FDF0E9;
+}
+.catalogContent{
+    background-color: #FDF0E9;
+}
+.catalogCardButton{
+    border-radius: 5px;
+}
+
+.filtreText{
+    font-size: 40px;
+    font-family: 'Epilogue' sans-serif;
+    font-weight: bold;
+    color: #391400;
+    margin-bottom: 0px;
+}
+
+.filtreSubText{
+    font-size: 27px;
+    font-family: 'Epilogue' sans-serif;
+    color: #391400;
+
+}
+.filtreRadio{
+    font-size: 20px;
+    font-family: 'Epilogue' sans-serif;
+    color: #391400;
+
+}
+
+.catalogPagination{
+    margin: 50px 0 50px 100px;
+}

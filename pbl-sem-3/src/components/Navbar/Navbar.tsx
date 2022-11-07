@@ -1,5 +1,5 @@
 import "antd/dist/antd.css";
-import styles from "./Navbar.module.css"
+import "./Navbar.css"
 import { Col, Row, Button , Layout} from 'antd';
 import { Link } from "react-router-dom";
 import { Catalog } from "../../pages/Catalog/Catalog";
@@ -9,19 +9,16 @@ function Navbar(){
     return(
         <nav>
         
-            <Row className={styles.navbar}>
+            <Row className="navbar">
                     <Col span={10}></Col>
                     <Col span={14}>
-                        <Link to="/"><Button type="primary" className={styles.navbar_buttons}><b>Acas&#259;</b> </Button></Link>
-                        <Link to="/catalog"  ><Button className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>Catalog</b></Button></Link>
-                        <Link to ="/login" ><Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>LOGARE</b></Button></Link>
-                        <Link to ="/register"><Button type='ghost' className={`${styles.navbar_buttons} ${styles.navbar_buttons_white}`}><b>&#206;NREGISTRARE</b></Button></Link>
+                        <Link to="/"><Button className="navbar_buttons navbar_buttons_white"><b>Acas&#259;</b> </Button></Link>
+                        <Link to="/catalog"  ><Button  className="navbar_buttons"><b>Catalog</b></Button></Link>
+                        <Link to ="/login" ><Button  className="navbar_buttons"><b>LOGARE</b></Button></Link>
+                        <Link to ="/register"><Button  className="navbar_buttons"><b>&#206;NREGISTRARE</b></Button></Link>
                     </Col>
             </Row>
         </nav>
-
-
-        
     )
 }
 

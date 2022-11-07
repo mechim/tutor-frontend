@@ -28,9 +28,14 @@
     font-size: larger;
 }
 
-/* Numbers */
+ /* Nabvar */
 
+ .navbar_buttons{
+    color: #29293E;
+    background-color: #fff;
+ }
 
-
-/* Testimonials */
-
+ .navbar_buttons:hover, .navbar_buttons::selection, ant-btn:focus{
+    color: #29293E;
+    background-color: rgba(255, 255, 255, 0.753);
+ }
