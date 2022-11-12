@@ -1,6 +1,7 @@
 import { Input, Checkbox, Button, Form, notification, Spin, Steps, Row, Col   } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
 import { create, creation} from "../../redux-toolkit/slices/registerSlice/registerSlice";
@@ -33,7 +34,10 @@ export function Register(){
         <div className="login">
             <Navbar />
             <div className="container">
-            <h1 className="loginText">Inregistreaza te:</h1>
+            <Row>
+                <Col span={12}><h1 className="loginText">Inregistreaza-te:</h1></Col>
+                <Col span={12}><h1 className="nosigninText">Ai deja cont?<Link to= "/login"><Button type="link" >Intră</Button></Link></h1></Col>
+            </Row>
             <hr />
            
             {/* <Row>

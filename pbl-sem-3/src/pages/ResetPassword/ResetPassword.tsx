@@ -34,34 +34,30 @@ export function Login(){
         <div className="login">
             <Navbar />
             <div className="container">
-              <Row>
-                <Col span={12}><h1 className="loginText">Logare:</h1></Col>
-                <Col span={12}><h1 className="nologinText">Nu ai cont?<Link to= "/register"><Button type="link" >Inregistrează-te</Button></Link></h1></Col>
-              </Row>
+                <h1 className="loginText">Reseteaza parola:</h1>
             <hr />
             <div className="loginContainer">
             <Form form={form}>
-                <h3 className="loginLabel">E-mail:</h3>
+                <h3 className="loginLabel">Parola noua:</h3>
                 <Form.Item
                   // label="Username"
                   name="email"
-                  rules={[{ required: true, message: 'Please input your email!' }]}
+                  rules={[{ required: true, message: 'Please input your new password!' }]}
                 >
                   <Input />
                 </Form.Item>
-                <h3 className="loginLabel">Parola:</h3>
+                <h3 className="loginLabel">Repeta parla:</h3>
                 <Form.Item
                   // label="Password"
                   name="password"
-                  rules={[{ required: true, message: 'Please input your password!' }]}
+                  rules={[{ required: true, message: 'Please repeat your new password!' }]}
                 >
                   <Input.Password />
                 </Form.Item>
-                <Link to="/forgot"><a>Ai uitat parola?</a></Link>
                                 
                 <Form.Item className="loginButtonContainer">
                   <Button danger className="loginButton" type="primary" onClick={onFinish}>
-                    Submit
+                    Reseteaza
                   </Button>
                 </Form.Item>
               </Form>

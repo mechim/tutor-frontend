@@ -4,3 +4,12 @@ hr {
 .registerSteps{
     margin-bottom: 20px;
 }
+
+.nosigninText{
+    font-family: 'Epilogue' sans-serif;
+    font-size: 20px;
+    color: #391400;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 425px;
+}
