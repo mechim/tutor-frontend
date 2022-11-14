@@ -40,7 +40,7 @@ export function ProfileStudent(){
                 
           
 
-            <Row>
+            <Row className="tutorCardContainer">
                 <Col><ProfileStudentCard/></Col>
                 <Col><ProfileStudentCard/></Col>
                 <Col><ProfileStudentCard/></Col>

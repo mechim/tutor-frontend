@@ -54,5 +54,9 @@
 .mesajNuPoateFiAnulat{
     margin-top: 35px;
     color: gray;
-    margin-left: -180px;
+    margin-left: -100px;
+}
+
+.tutorCardContainer{
+    align-items: center;
 }
