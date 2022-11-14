@@ -48,15 +48,19 @@ export function ProfileStudent(){
                     <ProfileStudentCard/>
                 </Row>
 
-                <Button className="schimbaParolaButtonContainer">
-                    Schimba Parola
-                </Button>
-                <br></br>
+            <Button className="schimbaParolaButtonContainer">
+                Schimba Parola
+            </Button>
+            <br></br>
 
-                <Button className="stergeProfilulButtonContainer">
-                    Șterge  profilul
-                </Button>
+            
 
+            <Row>
+                <Col span={6}><Button className="stergeProfilulButtonContainer">Șterge  profilul</Button></Col>
+                <Col span={12}><h4 className="mesajNuPoateFiAnulat">Această acțiune nu poate fi anulată!</h4></Col>
+                <Col span={6}></Col>
+            </Row>
+            
 
             </div>  
             </div>

@@ -37,16 +37,26 @@
     border-width: 2px;
     border-color: black;
     font-weight: bold;
+    width: 140px;
 }
 
 .stergeProfilulButtonContainer{
     margin-top:30px ;
-    margin-left: 1px;
+    margin-bottom: 30px;
     background-color: #FDF0E9;
     border-width: 2px;
     border-color: red;
     font-weight: bold;
     color: red;
-    width: 60x;
-    
+    width: 140px;    
+}
+
+.mesajNuPoateFiAnulat{
+    margin-top: 35px;
+    color: gray;
+    margin-left: -100px;
+}
+
+.tutorCardContainer{
+    align-items: center;
 }

@@ -1,0 +1,18 @@
+.tutorName{
+    font-weight: bold;
+    font-family: 'Epilogue' sans-serif;
+}
+
+.tutorSubject{
+    font-family: 'Epilogue' sans-serif;
+    font-size: medium;
+}
+
+.contacteazaButton{
+    margin-top: 20px;
+}
+
+.trashButton{
+    font-size: medium;
+    margin-top: 20px;
+}
