@@ -19,8 +19,7 @@ export function ProfileStudent(){
             <div className="login">
             <Navbar />
         
-                
-                <div className="container">
+            <div className="container">
             <div className="profileTop">
                 <Row>
                     <Col span={3}>

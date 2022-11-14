@@ -56,7 +56,8 @@ export function Catalog(){
                         Offline
                         {value === 13? <Input placeholder="Loca&#539;ia..." style={{ width: 100, marginLeft: 10 }} /> : null}
                         </Radio>
-                        <Link to ="/profileStudent" ><Button  className="navbar_buttons"><b>profil</b></Button></Link>
+                        <Link to ="/profileStudent" ><Button  className="navbar_buttons"><b>profil student</b></Button></Link>
+                        <Link to ="/profileTutor" ><Button  className="navbar_buttons"><b>profil tutor</b></Button></Link>
                     </Space>
                     </Radio.Group>
                     

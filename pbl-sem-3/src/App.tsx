@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import './App.css'
 import { Catalog } from './pages/Catalog/Catalog';
+import { ProfileTutor } from './pages/ProfileTutor/ProfileTutor';
 import { ForgotPassword } from './pages/ForgotPassword/ForgotPassword';
 import Landing from './pages/Landing/Landing'
 import { Login } from './pages/Login/Login';
@@ -28,6 +29,7 @@ function App() {
         <Route path ='/register' element={<Register />} />
         <Route path ='/forgot' element={<ForgotPassword/>}/>
         <Route path ='/profileStudent' element={<ProfileStudent/>}/>
+        <Route path ='/profileTutor' element={<ProfileTutor/>}/>
         <Route path ='/reset' element={<Reset/>}/>
 
       </Routes>

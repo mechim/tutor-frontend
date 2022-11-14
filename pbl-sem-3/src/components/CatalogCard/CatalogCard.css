@@ -1,0 +1,41 @@
+.catalogCard{
+    position: relative;
+    height: 250px;
+    width: 700px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.cardImage{
+    position: absolute;
+    width: 170px;
+    left: auto;
+    top: auto;
+    border-radius: 10px;
+}
+
+.catalogCardContainer{
+    position: absolute;
+    left: 220px;
+    top: auto;
+}
+.catalogCardPrice{
+    position: absolute;
+    right: 10px;
+}
+.catalogContent{
+    background-color: #FDF0E9;
+}
+.catalogCardButton{
+    border-radius: 5px;
+}
+
+.rateTutor{
+    position: absolute;
+    bottom: 15px;
+    left: 40px;
+}
+
+.tutorRatting{
+    position: absolute;
+    top: 31%;  
+}
