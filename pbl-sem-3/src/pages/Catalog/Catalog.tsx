@@ -8,6 +8,7 @@ import Meta from "antd/lib/card/Meta";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Catalog.css"
 import { CatalogCard } from '../../components/CatalogCard/CatalogCard';
+import { Link } from 'react-router-dom';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -55,6 +56,7 @@ export function Catalog(){
                         Offline
                         {value === 13? <Input placeholder="Loca&#539;ia..." style={{ width: 100, marginLeft: 10 }} /> : null}
                         </Radio>
+                        <Link to ="/profileStudent" ><Button  className="navbar_buttons"><b>profil</b></Button></Link>
                     </Space>
                     </Radio.Group>
                     
