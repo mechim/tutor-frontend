@@ -44,11 +44,7 @@ export function ProfileStudent(){
                     
             
 
-            <Row className="tutorCardContainer">
-                <Col><ProfileStudentCard/></Col>
-                <Col><ProfileStudentCard/></Col>
-                <Col><ProfileStudentCard/></Col>
-            </Row>
+           <ProfileStudentCard/>
 
             <Button className="schimbaParolaButtonContainer">
                 Schimba Parola
