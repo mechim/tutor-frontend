@@ -8,7 +8,7 @@ import { create, creation} from "../../redux-toolkit/slices/registerSlice/regist
 import "./Register.css"
 
 export function Register(){
-    const {user, loading, token} = useAppSelector((state) => ({...state.login}))
+    const {newUser, loading, token} = useAppSelector((state) => ({...state.register}))
     const dispatch = useAppDispatch();
 
     useEffect(()=>{
@@ -19,7 +19,8 @@ export function Register(){
         
         const{email, password, confirmPassword} = await form.getFieldsValue(); 
         const user = {email, password, confirmPassword};
-        dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
+        dispatch(create(user));
+        // dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
         
       };
     // console.log(user);
