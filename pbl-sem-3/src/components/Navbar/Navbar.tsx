@@ -3,9 +3,14 @@ import "./Navbar.css"
 import { Col, Row, Button , Layout} from 'antd';
 import { Link } from "react-router-dom";
 import { Catalog } from "../../pages/Catalog/Catalog";
+import { useLayoutEffect } from "react";
 const { Header, Footer, Sider, Content } = Layout;
 
 function Navbar(){
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
+    
     return(
         <nav>
         

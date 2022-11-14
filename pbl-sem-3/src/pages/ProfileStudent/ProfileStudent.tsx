@@ -1,7 +1,7 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Input, Checkbox, Button, Form, notification, Spin, Row, Avatar  } from "antd";
 import Col from "antd/es/grid/col";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { ProfileStudentCard } from "../../components/ProfileStudentCard/ProfileStudentCard";

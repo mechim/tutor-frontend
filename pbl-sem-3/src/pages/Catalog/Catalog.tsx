@@ -24,7 +24,7 @@ export function Catalog(){
     return(
         <div className="catalog">
             <Navbar />
-            <Layout>
+            <Layout style={{marginTop :"50px"}}>
                 <Sider className="catalogSider" width={400}>
                     <h1 className='filtreText'>Filtreaz&#259;:</h1>
                     <h2 className='filtreSubText'>Materie:</h2>

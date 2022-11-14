@@ -36,7 +36,7 @@ export function Login(){
             <div className="container">
               <Row>
                 <Col span={12}><h1 className="loginText">Logare:</h1></Col>
-                <Col span={12}><h1 className="nologinText">Nu ai cont?<Link to= "/register"><Button type="link" >Inregistrează-te</Button></Link></h1></Col>
+                <Col span={12} style={{textAlign:"right"}}><h1 className="nologinText">Nu ai cont? <Link style={{color:"red"}} to= "/register">Inregistrează-te</Link></h1></Col>
               </Row>
             <hr />
             <div className="loginContainer">

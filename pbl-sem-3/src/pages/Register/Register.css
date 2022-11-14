@@ -11,9 +11,6 @@ hr {
     color: #391400;
     font-weight: bold;
     margin-top: 40px;
-    margin-left: 425px;
-    text-align: right;
-}
-.aicontLink{
+    /* margin-left: 425px; */
     text-align: right;
 }

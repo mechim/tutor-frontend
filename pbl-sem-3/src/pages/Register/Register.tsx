@@ -37,7 +37,7 @@ export function Register(){
             <div className="container">
             <Row>
                 <Col span={12}><h1 className="loginText">Inregistreaza-te:</h1></Col>
-                <Col span={12} ><h1 className="nosigninText">Ai cont?</h1> <Link className="aicontLink" to= "/login"><Button type="link" >Intră</Button></Link></Col> 
+                <Col style={{textAlign : "right"}} span={12}><h1 className="nosigninText">Ai cont? <Link style={{color:"red"}} to= "/login">Intră</Link></h1></Col> 
                 
             </Row>
             <hr />
