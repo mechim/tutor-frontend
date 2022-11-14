@@ -1,0 +1,52 @@
+.profileTop{
+    margin-left: 200px;
+    margin-top: 70px;
+}
+
+.studentName{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-family: 'Epilogue' sans-serif;
+}
+
+.studentEmail{
+    margin-bottom: 50px;
+    font-family: 'Epilogue' sans-serif;
+}
+
+.avatar{
+    margin-left: 140px;
+}
+
+.addButton{
+    margin-right: 100px;
+    margin-top: 60px;
+    background-color: red;
+    border: red;
+}
+
+.profesoriiMeiText{
+    font-size: 30px;
+    margin-top: -10px;
+    margin-left: -30px;
+}
+
+.schimbaParolaButtonContainer{
+    margin-top:50px ;
+    background-color: #FDF0E9;
+    border-width: 2px;
+    border-color: black;
+    font-weight: bold;
+}
+
+.stergeProfilulButtonContainer{
+    margin-top:30px ;
+    margin-left: 1px;
+    background-color: #FDF0E9;
+    border-width: 2px;
+    border-color: red;
+    font-weight: bold;
+    color: red;
+    width: 60x;
+    
+}
