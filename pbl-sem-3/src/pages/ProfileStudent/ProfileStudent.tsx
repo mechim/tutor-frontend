@@ -11,29 +11,34 @@ import "./ProfileStudent.css"
 export function ProfileStudent(){
 
     return(
+          
         <div className="login">
-            <Navbar />
-        
+        <Navbar />
+      
+            
+            <div className="container">
         <div className="profileTop">
             <Row>
-                <Col span={4}>
+                <Col span={3}>
                     <Avatar size={100} icon={<UserOutlined />} className="avatar" />
                     
                 </Col>
-                <Col>
-                    <Button type="primary" shape="circle" className="addButton" style={{width: '30px', fontSize:'25px', verticalAlign: "middles"}}><p style={{position: "absolute", top: "-5px", left: "7.5px"}}>+</p></Button>
+                <Col span={1}>
+                    <Button type="primary" shape="circle" className="addButton" style={{marginLeft:"-30px", marginTop: "70px", width: '30px', fontSize:'25px'}}><p style={{position: "absolute", top: "-5px", left: "7.5px"}}>+</p></Button>
                 </Col>
                 <Col span={16}>
                     <h1 className="studentName">Lizzie Bennet</h1>
                     <h4 className="studentEmail">someweirdemail@gmail.com</h4>
                 </Col>
-                <Col span={4}></Col>
+                {/* <Col span={4}></Col> */}
             </Row>
-
-            <div className="container">
-                <h1 className="profesoriiMeiText">Profesorii mei</h1>
-                <hr className="profesoriiMeiText"/>
-            </div>
+                <div>
+                    <h1 className="profesoriiMeiText">Profesorii mei</h1>
+                    <hr className="profesoriiMeiText"/>
+                </div>
+           
+                
+          
 
             <Row>
                 <Col><ProfileStudentCard/></Col>
@@ -57,6 +62,7 @@ export function ProfileStudent(){
 
 
         </div>  
+        </div>
         </div>
     )
     
