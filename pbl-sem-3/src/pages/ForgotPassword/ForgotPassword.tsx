@@ -3,22 +3,26 @@ import form from "antd/lib/form";
 import { useForm } from "antd/lib/form/Form";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { getEmail } from "../../redux-toolkit/slices/forgotPasswordSlice/forgotPasswordSlice";
+import "./ForgotPassword.css"
+import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
 
 export function ForgotPassword(){
+  const {email} = useAppSelector((state) => ({...state.forgot}))
+  const dispatch = useAppDispatch();
+
 
     const onFinish = async() => {
         
-        const{email, password} = await form.getFieldsValue(); 
-        const user = {email, password};
-        dispatch(getUser(user));
-        dispatch(auth('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
-        
+        const {email} = await form.getFieldsValue();
+        const e = {email};
+        dispatch(getEmail(e.email));
       };
     
     const [form] = useForm();
 
     return(
-        <div className="login">
+      <div className="forgotPassword">
             <Navbar/>
             <div className="container">
                 <h1 className="loginText">Ai uiat parola?</h1>
@@ -34,16 +38,18 @@ export function ForgotPassword(){
                   <Input />
                 </Form.Item>
         
-                <Form.Item className="loginButtonContainer">
+                <Form.Item style={{marginBottom: 'auto'}} className="loginButtonContainer">
                   <Button danger className="loginButton" type="primary" onClick={onFinish}>
+                  <Link to={'/reset'}>
                     Reseteaza
+                    </Link>
                   </Button>
                 </Form.Item>
               </Form>
                 </div>
             </div>
-
-        </div>
+      </div>
+        
 
                 
     )

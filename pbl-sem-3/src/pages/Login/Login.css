@@ -48,4 +48,8 @@ hr{
 .loginButton{
     width: 150px;
     height: 35px;
+    margin-top: 10px;
+}
+.forgotLink{
+   margin-bottom: 30px; 
 }

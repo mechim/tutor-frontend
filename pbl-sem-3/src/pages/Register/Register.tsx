@@ -36,14 +36,10 @@ export function Register(){
             <div className="container">
             <Row>
                 <Col span={12}><h1 className="loginText">Inregistreaza-te:</h1></Col>
-                <Col span={12}><h1 className="nosigninText">Ai deja cont?<Link to= "/login"><Button type="link" >Intră</Button></Link></h1></Col>
+                <Col span={12} ><h1 className="nosigninText">Ai cont?</h1> <Link className="aicontLink" to= "/login"><Button type="link" >Intră</Button></Link></Col> 
+                
             </Row>
             <hr />
-           
-            {/* <Row>
-              <Col span={12}><div className="stepLine"></div></Col>
-              <Col span={12}> <div className="stepline"></div></Col>
-            </Row> */}
 
             <div className="loginContainer">
             <Form form={form}>

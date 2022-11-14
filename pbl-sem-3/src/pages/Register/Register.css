@@ -12,4 +12,8 @@ hr {
     font-weight: bold;
     margin-top: 40px;
     margin-left: 425px;
+    text-align: right;
+}
+.aicontLink{
+    text-align: right;
 }

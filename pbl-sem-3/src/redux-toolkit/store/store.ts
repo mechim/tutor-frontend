@@ -1,14 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {catalogSlice} from '../slices/catalogSlice/catalogSlice'
 import { loginSlice } from '../slices/loginSlice/loignSlice'
-import registerSlice from '../slices/registerSlice/registerSlice'
+import {forgotSlice} from '../slices/forgotPasswordSlice/forgotPasswordSlice'
+import {registerSlice} from '../slices/registerSlice/registerSlice'
+import {resetSlice} from '../slices/resetSlice/resetSlice'
 // ...
 
 export const store = configureStore({
   reducer: {
     login: loginSlice.reducer,
     tutorCard: catalogSlice.reducer,
-    // register: registerSlice.re
+    register: registerSlice.reducer,
+    forgot: forgotSlice.reducer,
+    reset: resetSlice.reducer,
     // posts: postsReducer,
     // comments: commentsReducer,
     // users: usersReducer,

@@ -25,6 +25,9 @@ const initialState: RegisterState = {
 export const creation = createAsyncThunk('registerSlice/createUser', async(id: number) => {
     return await axios.post(`https://jsonplaceholder.typicode.com/todos/${id}`).then((res) => {
         return res.data;
+        if (res.data.non_field_errors === "The passwords do not coincide"){
+            
+        }
     })
 })
 

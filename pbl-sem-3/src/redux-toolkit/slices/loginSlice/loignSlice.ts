@@ -2,18 +2,19 @@ import {  createAsyncThunk, createSlice, SerializedError,PayloadAction } from '@
 import type { RootState } from '../../store/store'
 import axios from 'axios'
 
-// Define a type for the slice state
-interface IUser{
+//INTERFACE FOR USER
+export interface IUser{
   email:string;
   password: string;
 }
+//STATES
 interface LoginState{
   user: IUser,
   loading: string;
   token: string | null;
   error: SerializedError | null;
 }
-// Define the initial state using that type
+//INITIAL STATE
 const initialState: LoginState = {
   user: {} as IUser,
   loading: '',
@@ -21,12 +22,16 @@ const initialState: LoginState = {
   error: null,
 }
 
+
+
+//ACTION
 export const authentification = createAsyncThunk('loginSlice/sendUser', async(id: any) => {
   return await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`).then((res) => {
     return res.data;
   })
 })
 
+//REDUCER
 // export const registration
 export const loginSlice = createSlice({
   name: 'login',

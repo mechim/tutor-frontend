@@ -11,6 +11,7 @@ import { ForgotPassword } from './pages/ForgotPassword/ForgotPassword';
 import Landing from './pages/Landing/Landing'
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
+import {Reset} from './pages/ResetPassword/ResetPassword'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login'  element={<Login />}/>
         <Route path ='/register' element={<Register />} />
         <Route path ='/forgot' element={<ForgotPassword/>}/>
+        <Route path ='/reset' element={<Reset/>}/>
       </Routes>
     </Router> 
   )

@@ -1,0 +1,10 @@
+export function Profile(){
+
+    return(
+        <div>
+            <h3>Name: </h3>
+            <h3>Email: </h3>
+            <h3>Password: </h3>
+        </div>
+    )
+}

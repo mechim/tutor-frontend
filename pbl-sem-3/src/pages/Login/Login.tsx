@@ -54,10 +54,13 @@ export function Login(){
                   // label="Password"
                   name="password"
                   rules={[{ required: true, message: 'Please input your password!' }]}
+                  style={{
+                    marginBottom: '5px'
+                  }}
                 >
                   <Input.Password />
                 </Form.Item>
-                <Link to="/forgot"><a>Ai uitat parola?</a></Link>
+                <Link className="forgotLink" to="/forgot"><a>Ai uitat parola?</a></Link>
                                 
                 <Form.Item className="loginButtonContainer">
                   <Button danger className="loginButton" type="primary" onClick={onFinish}>
