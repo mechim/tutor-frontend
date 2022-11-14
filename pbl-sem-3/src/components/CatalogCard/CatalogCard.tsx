@@ -1,7 +1,8 @@
 import { StarFilled } from "@ant-design/icons";
-import { Card, Button } from "antd";
+import { Card, Button, Rate } from "antd";
 import { useAppSelector } from "../../redux-toolkit/hooks/hooks";
 import { TutorCard } from "../../redux-toolkit/slices/catalogSlice/catalogSlice";
+import "./CatalogCard.css"
 
 export function CatalogCard(){
 
@@ -11,10 +12,12 @@ export function CatalogCard(){
         {tutorsArray.map(({tutorImage, tutorName, tutorSubject, id, format, rating, description, price}: TutorCard) => (
             <Card className="catalogCard">
                         <img className="cardImage" src={tutorImage} alt="" />
+                        <Rate className="rateTutor" allowHalf defaultValue={0} />
                         <div className="catalogCardContainer">
                             <h1>{tutorName}</h1>
                             <h3>{tutorSubject}</h3>
-                            <StarFilled /><StarFilled /><StarFilled /><StarFilled /><StarFilled />
+                            <Rate className="tutorRatting" disabled defaultValue={2} />
+                            <br /> 
                             <h3>{format}</h3>
                             <p>{description}</p>
                             <a href="/">Mai multe...</a>

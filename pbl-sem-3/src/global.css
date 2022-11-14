@@ -9,3 +9,7 @@ html, body{
 .container{
     padding: 3% 10% 7%;
 }
+
+.ant-rate-star-first, .ant-rate-star-second{
+    color:#a8abac;
+}
