@@ -5,6 +5,10 @@ hr {
     margin-bottom: 20px;
 }
 
+.registerContainer{
+    padding: 0 350px;
+    margin-top: 20px;
+}
 .nosigninText{
     font-family: 'Epilogue' sans-serif;
     font-size: 20px;
@@ -13,4 +17,7 @@ hr {
     margin-top: 40px;
     /* margin-left: 425px; */
     text-align: right;
+}
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+    background-color: rgb(129, 129, 129);
 }

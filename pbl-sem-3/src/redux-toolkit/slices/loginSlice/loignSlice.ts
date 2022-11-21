@@ -1,11 +1,21 @@
 import {  createAsyncThunk, createSlice, SerializedError,PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store/store'
 import axios from 'axios'
+import { Action } from '@remix-run/router';
 
 //INTERFACE FOR USER
 export interface IUser{
   email:string;
   password: string;
+  isLogged: boolean;
+  user ?: BackUser;
+}
+
+interface BackUser{
+  name: string;
+  email: string;
+  image: string;
+
 }
 //STATES
 interface LoginState{
@@ -45,6 +55,9 @@ export const loginSlice = createSlice({
     getUser:(state: LoginState, action: PayloadAction<IUser>) => {
       state.user.email = action.payload.email;
       state.user.password = action.payload.password;
+      state.user.isLogged = action.payload.isLogged;
+      sessionStorage.setItem('user-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' );
+
     },
   },
   extraReducers:(builder)=>{
@@ -54,6 +67,7 @@ export const loginSlice = createSlice({
       state.loading = 'fullfilled';
       // state.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
       console.log(payload);
+      sessionStorage.setItem('user-token',payload.payload );
 
     }).addCase(authentification.rejected, (state, payload) => {
       state.loading = 'idol';

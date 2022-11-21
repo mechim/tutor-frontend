@@ -15,7 +15,6 @@ export function ForgotPassword(){
 
     const onFinish = async() => {
         const {formEmail} = await form.validateFields();
-        console.log(formEmail);
         // const {email} = await form.getFieldsValue();
         if (formEmail){
           dispatch(getEmail(formEmail));

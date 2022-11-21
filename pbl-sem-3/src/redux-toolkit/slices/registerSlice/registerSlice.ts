@@ -2,7 +2,7 @@ import {  createAsyncThunk, createSlice, SerializedError, PayloadAction } from '
 import type { RootState } from '../../store/store'
 import axios from 'axios'
 
-interface NewUser{
+export interface NewUser{
     email: string;
     password: string;
     confirmPassword: string;
@@ -25,9 +25,7 @@ const initialState: RegisterState = {
 export const creation = createAsyncThunk('registerSlice/createUser', async(id: number) => {
     return await axios.post(`https://jsonplaceholder.typicode.com/todos/${id}`).then((res) => {
         return res.data;
-        if (res.data.non_field_errors === "The passwords do not coincide"){
 
-        }
     })
 })
 
@@ -47,9 +45,12 @@ export const registerSlice = createSlice({
           state.loading = 'pending';
         }).addCase(creation.fulfilled, (state, payload) => {
           state.loading = 'fullfilled';
-          // state.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
-          console.log(payload);
-    
+        //   if (payload.payload === )
+        //   // state.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
+        //   console.log(payload.non_field_errors === "The passwords do not coincide"){
+            
+        //   };
+          
         }).addCase(creation.rejected, (state, payload) => {
           state.loading = 'idol';
           state.error = payload.error;

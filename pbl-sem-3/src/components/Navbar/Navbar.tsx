@@ -25,7 +25,7 @@ function Navbar(){
                     <Col span={14}>
                         <Link to="/"><Button className="navbar_buttons navbar_buttons_white"><b>Acas&#259;</b> </Button></Link>
                         <Link to="/catalog"  ><Button  className="navbar_buttons"><b>Catalog</b></Button></Link>
-                        {user ? <>
+                        {user.isLogged ? <>
                             <Link to ="/profileStudent"><h3>{user.email}</h3></Link>
                         </> : <><Link to ="/login" ><Button  className="navbar_buttons"><b>LOGARE</b></Button></Link>
                         <Link to ="/register"><Button  className="navbar_buttons"><b>&#206;NREGISTRARE</b></Button></Link></> }

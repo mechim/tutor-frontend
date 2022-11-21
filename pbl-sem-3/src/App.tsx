@@ -14,6 +14,7 @@ import { Login } from './pages/Login/Login';
 import { ProfileStudent } from './pages/ProfileStudent/ProfileStudent';
 import { Register } from './pages/Register/Register';
 import {Reset} from './pages/ResetPassword/ResetPassword'
+import {RegisterSecond} from './pages/RegisterSecond/RegisterSecond'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path ='/profileStudent' element={<ProfileStudent/>}/>
         <Route path ='/profileTutor' element={<ProfileTutor/>}/>
         <Route path ='/reset' element={<Reset/>}/>
+        <Route path='/registerSecond' element={<RegisterSecond/>}/>
 
       </Routes>
     </Router> 

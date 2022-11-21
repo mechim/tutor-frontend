@@ -1,15 +1,16 @@
 import { Input, Checkbox, Button, Form, notification, Spin, Steps, Row, Col   } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { create, creation} from "../../redux-toolkit/slices/registerSlice/registerSlice";
+import { create, creation, NewUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
 import "./Register.css"
 
 export function Register(){
     const {newUser, loading, token} = useAppSelector((state) => ({...state.register}))
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     useEffect(()=>{
       dispatch(creation(1));
@@ -17,10 +18,15 @@ export function Register(){
 
     const onFinish = async() => {
         
-        const{email, password, confirmPassword} = await form.getFieldsValue(); 
+        const{email, password, confirmPassword} = await form.validateFields(); 
         const user = {email, password, confirmPassword};
-        dispatch(create(user));
+        
         // dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
+
+        if (user != {} as NewUser){
+            navigate("/registerSecond");
+            dispatch(create(user));
+        }
         
       };
     // console.log(user);
@@ -41,8 +47,12 @@ export function Register(){
                 
             </Row>
             <hr />
+            <Steps current={0} size="default" style={{padding: "0 200px"}} >
+                <Step  />
+                <Step  />
+            </Steps>
 
-            <div className="loginContainer">
+            <div className="registerContainer">
             <Form form={form}>
                 <h3 className="loginLabel">E-mail:</h3>
                 <Form.Item

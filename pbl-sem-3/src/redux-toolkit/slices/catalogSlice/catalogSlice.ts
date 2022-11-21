@@ -26,8 +26,8 @@ const initialState: CatalogState = {
     id: 0
 },
 {tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "John Doe",
-    tutorSubject: "Istoria",
+    tutorName: "Vova Doe",
+    tutorSubject: "Matematica",
     format:"Online",
     description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
     price: "100",
@@ -35,8 +35,8 @@ const initialState: CatalogState = {
     id: 1
 },
 {tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "John Doe",
-    tutorSubject: "Istoria",
+    tutorName: "Vasea Doe",
+    tutorSubject: "Romana",
     format:"Istoria",
     description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
     price: "100",
@@ -58,14 +58,14 @@ export const catalogSlice = createSlice({
     name: 'catalog',
     initialState,
     reducers:{
-        // display: (state: CatalogState, action: PayloadAction<string>) => {
-        //     console.log(action.payload);
-        //     state.token = action.payload;    
-        // }
+        displayCatalog: (state: CatalogState, action: PayloadAction<string>) => {
+            console.log(action.payload);
+           
+        }
 
     },
    
 })
 
-// export const {display} = catalogSlice.actions;
+export const {displayCatalog} = catalogSlice.actions;
 export default catalogSlice.reducer;

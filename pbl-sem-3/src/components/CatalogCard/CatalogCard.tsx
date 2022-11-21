@@ -7,7 +7,7 @@ import "./CatalogCard.css"
 export function CatalogCard(){
 
     const {tutorsArray} = useAppSelector((state) => ({...state.tutorCard}));
-    console.log(tutorsArray);
+        // console.log(tutorsArray);
     return (<>
         {tutorsArray.map(({tutorImage, tutorName, tutorSubject, id, format, rating, description, price}: TutorCard) => (
             <Card className="catalogCard">

@@ -19,7 +19,8 @@ export function Login(){
     const onFinish = async() => {
         
         const{email, password} = await form.getFieldsValue(); 
-        const user = {email, password};
+        const isLogged = true;
+        const user = {email, password, isLogged};
         dispatch(getUser(user));
         dispatch(auth('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
         
@@ -63,9 +64,9 @@ export function Login(){
                 <Link className="forgotLink" to="/forgot"><a>Ai uitat parola?</a></Link>
                                 
                 <Form.Item className="loginButtonContainer">
-                  <Link to="/catalog"  ><Button danger className="loginButton" type="primary" onClick={onFinish}>
+                <Button danger className="loginButton" type="primary" onClick={onFinish}>
                     Submit
-                  </Button></Link>
+                  </Button>
                 </Form.Item>
               </Form>
             </div>
