@@ -8,6 +8,7 @@ import { Image } from 'antd';
 import axios from "axios";
 import { Numbers } from "../../components/Numbers/Numbers";
 import { Reviews } from "../../components/Reviews/Reviews";
+import { Link } from "react-router-dom";
 
 function Landing(){
     
@@ -22,7 +23,7 @@ function Landing(){
             <div className="container">
                 <Row>
                     <Col span={12} className="hero-call-to-action"><h1 className="hero-main-text">Ai nevoie de ad&#259;ug&#259;tor? G&#259;seste unul chiar acum!</h1>
-                    <Button danger type="primary" className="hero-main-button">CATALOG</Button>
+                    <Link to="/catalog"  ><Button danger type="primary" className="hero-main-button">CATALOG</Button></Link>
                     </Col>
                     <Col span={12} className='hero-image'><Image width={475} src={heroPic}/></Col>
                 </Row>

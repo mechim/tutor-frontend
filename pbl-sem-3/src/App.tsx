@@ -15,6 +15,7 @@ import { ProfileStudent } from './pages/ProfileStudent/ProfileStudent';
 import { Register } from './pages/Register/Register';
 import {Reset} from './pages/ResetPassword/ResetPassword'
 import {RegisterSecond} from './pages/RegisterSecond/RegisterSecond'
+import { EditProfileTutor } from './pages/EditProfileTutor/EditProfileTutor';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path ='/profileStudent' element={<ProfileStudent/>}/>
         <Route path ='/profileTutor' element={<ProfileTutor/>}/>
         <Route path ='/reset' element={<Reset/>}/>
+        <Route path = '/editTutorProfile' element={<EditProfileTutor/>}/>
         <Route path='/registerSecond' element={<RegisterSecond/>}/>
 
       </Routes>
