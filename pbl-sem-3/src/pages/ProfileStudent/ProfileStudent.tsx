@@ -27,7 +27,7 @@ export function ProfileStudent(){
                         
                     </Col>
                     <Col span={1}>
-                        <Button type="primary" shape="circle" className="addButton" style={{marginLeft:"-30px", marginTop: "70px", width: '30px', fontSize:'25px'}}><p style={{position: "absolute", top: "-5px", left: "7.5px"}}>+</p></Button>
+                        <Button type="primary" shape="circle" className="addButton" style={{marginLeft:"-50px", marginTop: "70px", width: '30px', fontSize:'25px'}}><p style={{position: "absolute", top: "-5px", left: "7.5px"}}>+</p></Button>
                     </Col>
                     <Col span={16}>
                         <h1 className="studentName">Lizzie Bennet</h1>

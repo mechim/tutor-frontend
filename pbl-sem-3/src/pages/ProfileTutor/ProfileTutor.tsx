@@ -1,5 +1,6 @@
 import { StarFilled, UserOutlined } from "@ant-design/icons";
 import { Row, Col, Avatar, Button, Rate, Card } from "antd";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import "./ProfileTutor.css"
 
@@ -15,12 +16,9 @@ export function ProfileTutor(){
             <div className="container">
             <div className="profileTop">
                 <Row>
-                    <Col span={3}>
-                        <Avatar size={100} icon={<UserOutlined />} className="avatar" />
+                    <Col span={4}>
+                        <Avatar  size={100} icon={<UserOutlined />}  />
                         
-                    </Col>
-                    <Col span={1}>
-                        <Button type="primary" shape="circle" className="addButton" style={{marginLeft:"-30px", marginTop: "70px", width: '30px', fontSize:'25px'}}><p style={{position: "absolute", top: "-5px", left: "7.5px"}}>+</p></Button>
                     </Col>
                     <Col span={11}>
                         <h1 className="studentName">Lizzie Bennet</h1>
@@ -35,7 +33,7 @@ export function ProfileTutor(){
                 </Row>
 
                 <Row>
-                    <Col span={4}><Button danger type='primary' className="editeazaProfilulButton">Editeaza profilul</Button></Col>
+                    <Link to = "/editTutorProfile"><Col span={4}><Button danger style={{background: "#391400", borderColor:"#391400"}}  type='primary' className="editeazaProfilulButton">Editeaza profilul</Button></Col></Link>
                     <Col span={11}><h2 className="formatLectii">Formatul lectiilor: Offline(locatia)</h2></Col>
                     <Col span={9}></Col>
                 </Row>

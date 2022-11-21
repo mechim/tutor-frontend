@@ -1,3 +1,7 @@
+.logedInNavbar{
+    margin-left: 250px;
+}
+
 .navbar{
     padding-top: 2rem;
     /* margin-bottom: 2rem; */
@@ -23,3 +27,12 @@
     --antd-wave-shadow-color: #391400  !important;
 }
 
+.avatarButtonNavbar{
+    margin-left: 50px;
+    margin-top: -10px;
+}
+
+.avatarNavbar{
+    margin-left: -5px;
+    margin-top: -10px;
+}

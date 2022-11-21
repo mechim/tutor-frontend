@@ -9,10 +9,16 @@
     margin-top: 20px;
 }
 
-.formatLectii{
+.formatLectiiEdit{
     font-family: 'Epilogue' sans-serif;
     margin-top: 20px;
-    margin-left: 40px;
+}
+
+.linkButton{
+    font-size: 20px;
+    color: red;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .descriereaProfilului{
@@ -30,4 +36,13 @@
     margin-bottom: 20px;
     margin-left: 100px;
     margin-right: 100px;
+}
+
+.costEdit{
+    margin-top: 27px;
+    border-color: red;
+}
+
+.ant-input {
+    border-color: red;
 }
