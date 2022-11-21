@@ -5,3 +5,28 @@
     font-weight: bold;
 }
 
+.editeazaProfilulButton{
+    margin-top: 20px;
+}
+
+.formatLectii{
+    font-family: 'Epilogue' sans-serif;
+    margin-top: 20px;
+}
+
+.descriereaProfilului{
+    font-family: 'Epilogue' sans-serif;
+    margin-top: 50px;
+}
+
+.descriereaProfiluluiLine{
+    font-family: 'Epilogue' sans-serif;
+    margin-top: -10px;
+}
+
+.reviewsCardTutorProfile{
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}

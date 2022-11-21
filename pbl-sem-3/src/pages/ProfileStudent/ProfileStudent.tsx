@@ -37,7 +37,7 @@ export function ProfileStudent(){
                 </Row>
                     <div>
                         <h1 className="profesoriiMeiText">Profesorii mei</h1>
-                        <hr className="profesoriiMeiText"/>
+                        <hr className="profesoriiMeiTextLine"/>
                     </div>
             
                     
