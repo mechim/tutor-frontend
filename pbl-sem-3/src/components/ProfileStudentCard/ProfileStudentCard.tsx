@@ -7,7 +7,7 @@ import { TutorCard } from '../../redux-toolkit/slices/catalogSlice/catalogSlice'
 import "./ProfileStudentCard.css"
 
 export function ProfileStudentCard(){
-  const {tutorsArray} = useAppSelector((state) => ({...state.tutorCard}));
+  const {tutorsArray} = useAppSelector((state: { tutorCard: any; }) => ({...state.tutorCard}));
 
   return(<>
   {tutorsArray.map(({tutorImage, tutorName, tutorSubject, id, format, rating, description, price}: TutorCard) => (

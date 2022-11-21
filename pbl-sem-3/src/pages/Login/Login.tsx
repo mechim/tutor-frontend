@@ -63,9 +63,9 @@ export function Login(){
                 <Link className="forgotLink" to="/forgot"><a>Ai uitat parola?</a></Link>
                                 
                 <Form.Item className="loginButtonContainer">
-                  <Button danger className="loginButton" type="primary" onClick={onFinish}>
+                  <Link to="/catalog"  ><Button danger className="loginButton" type="primary" onClick={onFinish}>
                     Submit
-                  </Button>
+                  </Button></Link>
                 </Form.Item>
               </Form>
             </div>
