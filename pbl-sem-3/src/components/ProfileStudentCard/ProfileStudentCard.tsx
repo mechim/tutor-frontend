@@ -3,20 +3,20 @@ import { Button, Card, Col, Rate, Row } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React from 'react';
 import { useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { TutorCard } from '../../redux-toolkit/slices/catalogSlice/catalogSlice';
+import { CourseCard } from '../../redux-toolkit/slices/catalogSlice/catalogSlice';
 import "./ProfileStudentCard.css"
 
 export function ProfileStudentCard(){
   const {tutorsArray} = useAppSelector((state: { tutorCard: any; }) => ({...state.tutorCard}));
 
   return(<>
-  {tutorsArray.map(({tutorImage, tutorName, tutorSubject, id, format, rating, description, price}: TutorCard) => (
+  {tutorsArray.map(({profile, price, subject}: CourseCard) => (
   <Card
     hoverable
     style={{ width: 240 }}
-    cover={<img alt="example" src={tutorImage} />}
+    cover={<img alt="example" src="" />}
   >
-  <Meta title={tutorName} description={tutorSubject} />
+  <Meta title= {profile.first_name + " " +profile.last_name} description={subject.subject_name} />
   <Rate disabled defaultValue={2} />
 
     <Row>

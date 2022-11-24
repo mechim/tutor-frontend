@@ -30,10 +30,13 @@ export function Catalog(){
         setValue1(e.target.value);
     }
 
-    useEffect(()=>{
-        console.log(value);
-        value && dispatch(displayCatalog(value));
-    } ,[value])
+    // useEffect(()=>{
+    //     console.log(value);
+    //     value && dispatch(displayCatalog());
+    // } ,[value])
+    useEffect(() => {
+        dispatch(displayCatalog());
+    })
 
     
     

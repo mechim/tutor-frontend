@@ -1,14 +1,25 @@
 import { StarFilled, UserOutlined } from "@ant-design/icons";
 import { Row, Col, Avatar, Button, Rate, Card } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
 import "./ProfileTutor.css"
-
-
+import {Course, Review} from "../../redux-toolkit/slices/userSlice/userSlice"
+import {logout} from "../../redux-toolkit/slices/loginSlice/loignSlice"
+import { killUser } from "../../redux-toolkit/slices/userSlice/userSlice";
 export function ProfileTutor(){
 
-    
+    const {user} = useAppSelector((state) => ({...state.user}));   
+    const {first_name, last_name, contact_mail, phone_number, courses, reviews, location, about_me, rating_value} = user;
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
+    
+    const onLogout = (() => {
+        dispatch(logout());
+        dispatch(killUser());
+        navigate("/");  
+    })
     return(
         
             <div className="login">
@@ -20,80 +31,70 @@ export function ProfileTutor(){
                         <Avatar  size={100} icon={<UserOutlined />}  />
                         
                     </Col>
-                    <Col span={11}>
-                        <h1 className="studentName">Lizzie Bennet</h1>
-                        <h4>Franceza</h4>
-                        <h4>Istoria</h4>
-                    </Col>
-                    <Col span={9} style={{textAlign:"right"}}>
-                        <Rate disabled defaultValue={2} />
-                        <h4 className="cost">100 lei/ora</h4>
-                        <h4 className="cost">150 lei/ora</h4>
-                    </Col>
                 </Row>
+                
+                    <h1 className="studentName">{first_name} {last_name}</h1>
+<hr />
+                <Row style={{marginBottom: "20px"}}>
+                <Col span={12}><Link to = "/editTutorProfile"><Button danger style={{background: "#391400", borderColor:"#391400"}}  type='primary' className="editeazaProfilulButton">Editeaza profilul</Button></Link></Col>
+                    <Col span={12} style={{textAlign: "right"}}><h3 className="formatLectii">Formatul lectiilor: Offline ({location})</h3></Col>
 
-                <Row>
-                    <Link to = "/editTutorProfile"><Col span={4}><Button danger style={{background: "#391400", borderColor:"#391400"}}  type='primary' className="editeazaProfilulButton">Editeaza profilul</Button></Col></Link>
-                    <Col span={11}><h2 className="formatLectii">Formatul lectiilor: Offline(locatia)</h2></Col>
-                    <Col span={9}></Col>
                 </Row>
+                    {courses.map(({subject_name, price}: Course) => (
+                        <Row>
+                            <Col span={12}><h3>{subject_name}</h3></Col>
+                            <Col span={12} style={{textAlign:"right"}}> <h3 className="cost">{price} lei/ora</h3></Col>
+                        </Row>
+                            
+                        ))}
+                
+                    
+                       
+                    
+               
+
+                
             
             
             <div className="descriereaProfilului">
                 <h1>Descrierea Profilului:</h1>
                 <hr className="descriereaProfiluluiLine"/>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis faucibus odio eu gravida hendrerit. Morbi rutrum vehicula ipsum ac pellentesque. Nunc luctus iaculis metus sed sagittis. Aliquam vestibulum ante vitae ante facilisis finibus. Sed gravida porta scelerisque. Nam finibus ut risus vel consequat. Duis ac diam dolor.</h2>
+                <h2>{about_me}</h2>
                 <br />
 
                 <h1>Informație generală:</h1>
                 <hr className="descriereaProfiluluiLine"/>
-                <h2><b>Locatie: </b>Chisinau</h2>
-                <h2><b>Telefon: </b>069112233</h2>
-                <h2><b>E-mail: </b>someweirdemail@gmail.com</h2>
-                <h2><b>Gen: </b>masculin</h2>
+                <h2><b>Locatie: </b>{location}</h2>
+                <h2><b>Telefon: </b>{phone_number}</h2>
+                <h2><b>E-mail: </b>{contact_mail}</h2>
                 <br/>
 
-                <h1>Certificate:</h1>
-                <hr className="descriereaProfiluluiLine"/>
-                <br/>
-
-                <h1>Educatie:</h1>
-                <hr className="descriereaProfiluluiLine"/>
-                <h1>Universitatea de Stat a Moldovei</h1>
-                <h2>Facultatea de limbi straine</h2>
-                <h3>Idk ce specialitate</h3>
-                <br/>
 
                 <h1>Recenzii:</h1>
                 <hr className="descriereaProfiluluiLine"/>
-                <Card className="reviewsCardTutorProfile">
-                     <Row>
-                        <Col span={12} className="reviewsName">Alan Marti</Col>
-                        <Col span={12} className="reviewsStars"><Rate disabled defaultValue={5} /></Col>
-                    </Row>
-                    <Row>
-                        <Col className="reviewsText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis magna.</Col>
-                    </Row>
-                </Card>
-                <Card className="reviewsCardTutorProfile">
-                     <Row>
-                        <Col span={12} className="reviewsName">Alan Marti</Col>
-                        <Col span={12} className="reviewsStars"><Rate disabled defaultValue={5} /></Col>
-                    </Row>
-                    <Row>
-                        <Col className="reviewsText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis magna.</Col>
-                    </Row>
-                </Card>
+                {reviews.map(({review_date, author_name, review_text}: Review) => (
+                    <Card className="reviewsCardTutorProfile">
+                        <Row>
+                       <Col span={12} className="reviewsName">{author_name}</Col>
+                        <Col span={12} style={{textAlign: "right"}}>{review_date}</Col>
+                        </Row>
+                        <Row>
+                       <Col className="reviewsText">{review_text}</Col>
+                        </Row>
+                    </Card>
+                ))}
+                
 
-                <Button className="schimbaParolaButtonContainer">
+                {/* <Button className="schimbaParolaButtonContainer">
                 Schimba Parola
                 </Button>
                 <br></br>
                 <Row>
                     <Col span={6}><Button className="stergeProfilulButtonContainer">Șterge  profilul</Button></Col>
                     <Col span={12}><h4 className="mesajNuPoateFiAnulat">Această acțiune nu poate fi anulată!</h4></Col>
-                    <Col span={6}></Col>
-                </Row>
+                   
+                </Row> */}
+                <Button className="stergeProfilulButtonContainer" onClick={() =>onLogout()}>Log Out</Button>
             </div>
             </div>
             </div>

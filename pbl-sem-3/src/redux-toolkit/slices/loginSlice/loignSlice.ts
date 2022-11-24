@@ -2,21 +2,17 @@ import {  createAsyncThunk, createSlice, SerializedError,PayloadAction } from '@
 import type { RootState } from '../../store/store'
 import axios from 'axios'
 import { Action } from '@remix-run/router';
+import { useAppDispatch } from '../../hooks/hooks';
+import { getEmail } from '../forgotPasswordSlice/forgotPasswordSlice';
 
 //INTERFACE FOR USER
 export interface IUser{
   email:string;
   password: string;
   isLogged: boolean;
-  user ?: BackUser;
 }
 
-interface BackUser{
-  name: string;
-  email: string;
-  image: string;
 
-}
 //STATES
 interface LoginState{
   user: IUser,
@@ -33,13 +29,15 @@ const initialState: LoginState = {
 }
 
 
-
 //ACTION
-export const authentification = createAsyncThunk('loginSlice/sendUser', async(id: any) => {
-  return await axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`).then((res) => {
+export const authentification = createAsyncThunk(
+  'loginSlice/sendUser', async({email, password}: {email: string, password: string}) => {
+   return await axios.post(`http://127.0.0.1:8000/api/authen/login`, {email, password}).then((res) => {
     return res.data;
   })
 })
+
+
 
 //REDUCER
 // export const registration
@@ -55,20 +53,23 @@ export const loginSlice = createSlice({
     getUser:(state: LoginState, action: PayloadAction<IUser>) => {
       state.user.email = action.payload.email;
       state.user.password = action.payload.password;
-      state.user.isLogged = action.payload.isLogged;
-      sessionStorage.setItem('user-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' );
 
     },
+    logout:(state: LoginState, action:PayloadAction) =>{
+        sessionStorage.removeItem('user-token');
+        sessionStorage.removeItem('is-logged');
+    }
   },
   extraReducers:(builder)=>{
     builder.addCase(authentification.pending, (state) => {
       state.loading = 'pending';
     }).addCase(authentification.fulfilled, (state, payload) => {
-      state.loading = 'fullfilled';
-      // state.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
+      state.loading = 'fulfilled';
       console.log(payload);
-      sessionStorage.setItem('user-token',payload.payload );
-
+      state.token = payload.payload['auth_token'];
+      state.user.isLogged = true;
+      sessionStorage.setItem('user-token',payload.payload['auth_token']);
+      sessionStorage.setItem('is-logged',String(state.user.isLogged ) );
     }).addCase(authentification.rejected, (state, payload) => {
       state.loading = 'idol';
       state.error = payload.error;
@@ -77,5 +78,5 @@ export const loginSlice = createSlice({
   }
 })
 
-export const {auth, getUser} = loginSlice.actions
+export const {auth, getUser, logout} = loginSlice.actions
 export default loginSlice.reducer

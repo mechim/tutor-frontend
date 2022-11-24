@@ -1,71 +1,83 @@
 import {  createAsyncThunk, createSlice, PayloadAction, SerializedError } from '@reduxjs/toolkit'
+import axios from 'axios'
 
-export interface TutorCard{
-    tutorImage: string,
-    tutorName: string,
-    tutorSubject: string,
-    rating: number,
-    format: string,
-    description: string,
-    price: string | number,
-    id: number
+export interface CourseCard{
+    
+        id: number,
+        subject: {
+            id: number,
+            subject_name: string
+        },
+        profile: {
+            id: number,
+            user: {
+                id: number,
+                last_login: null,
+                reg_date: string,
+                is_staff: boolean,
+                is_superuser: boolean
+            },
+            profile_type: number,
+            first_name: string,
+            last_name: string,
+            contact_mail: string,
+            phone_number: string,
+            about_me: string | null,
+            is_verified: boolean,
+            is_trusted: boolean,
+            date_of_birth: null,
+            location: string,
+            profile_picture: null
+        },
+        price: number,
+        lesson_format: number
+    
 }
 
 interface CatalogState{
-    tutorsArray: TutorCard[],
+    tutorsArray: CourseCard[],
+    loading:string,
+    error: SerializedError |null,
 }
 
+
 const initialState: CatalogState = {
-    tutorsArray: [{tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "John Doe",
-    tutorSubject: "Istoria",
-    format:"Online",
-    description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
-    price: "100",
-    rating: 5,
-    id: 0
-},
-{tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "Vova Doe",
-    tutorSubject: "Matematica",
-    format:"Online",
-    description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
-    price: "100",
-    rating: 5,
-    id: 1
-},
-{tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "Vasea Doe",
-    tutorSubject: "Romana",
-    format:"Istoria",
-    description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
-    price: "100",
-    rating: 5,
-    id: 2
-},
-{tutorImage: "https://capecoraltech.edu/wp-content/uploads/2016/01/tutor-8-3.jpg",
-    tutorName: "John Doe",
-    tutorSubject: "Istoria",
-    format:"Online",
-    description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Mulla eget rhoncus nisi",
-    price: "100",
-    rating: 5,
-    id: 3
-}]
+    tutorsArray: [],
+    loading: '',
+    error: null
 }
+
+export const displayCatalog = createAsyncThunk(
+    'catalog/display', 
+   async () => {
+        return await axios.get(`http://127.0.0.1:8000/api/catalog/?subject=&format=&min=0&max=999`).then((res) => {
+            console.log(res.data);
+            return res.data;
+        })
+   }
+)
 
 export const catalogSlice = createSlice({
     name: 'catalog',
     initialState,
     reducers:{
-        displayCatalog: (state: CatalogState, action: PayloadAction<string>) => {
+        default :(state: CatalogState, action: PayloadAction<String>) =>{
             console.log(action.payload);
-           
         }
-
     },
-   
+   extraReducers:(builder)=>{
+    builder.addCase(displayCatalog.pending, (state) =>{
+        state.loading = 'pending';
+    }).addCase(displayCatalog.fulfilled, (state, payload) =>{
+        state.loading = 'fulfilled';
+        state.tutorsArray = payload.payload;
+    }).addCase(displayCatalog.rejected, (state, payload) =>{
+        state.loading = 'rejected';
+        state.error = payload.error;
+        console.log(payload.error.message);
+    })
+   }
 })
 
-export const {displayCatalog} = catalogSlice.actions;
+export const {} = catalogSlice.actions;
 export default catalogSlice.reducer;

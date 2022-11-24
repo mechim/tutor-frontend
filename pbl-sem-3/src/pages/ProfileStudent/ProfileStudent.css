@@ -1,3 +1,7 @@
+html, body{
+    height: 1080px;
+    background-color: #FDF0E9;
+}
 .profileTop{
     margin-left: 100px;
     margin-top: 70px;
@@ -61,7 +65,7 @@
 .mesajNuPoateFiAnulat{
     margin-top: 35px;
     color: gray;
-    margin-left: -100px;
+    text-align: left;
 }
 
 .tutorCardContainer{

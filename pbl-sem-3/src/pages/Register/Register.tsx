@@ -1,31 +1,41 @@
-import { Input, Checkbox, Button, Form, notification, Spin, Steps, Row, Col   } from "antd";
+import { Input, Button, Form, Spin, Steps, Row, Col, message   } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { create, creation, NewUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
+import { create, createUser, NewUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
 import "./Register.css"
 
 export function Register(){
-    const {newUser, loading, token} = useAppSelector((state) => ({...state.register}))
+    const {newUser, loading, token, error} = useAppSelector((state) => ({...state.register}))
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    useEffect(()=>{
-      dispatch(creation(1));
-    } ,[])
+    const [messageApi, contextHolder] = message.useMessage();
+
 
     const onFinish = async() => {
         
-        const{email, password, confirmPassword} = await form.validateFields(); 
-        const user = {email, password, confirmPassword};
-        
+        const{email, password, confirm_password} = await form.validateFields(); 
+        const user = {email, password, confirm_password};
+
+        const errorMessage = (message: string | undefined) => {
+          messageApi.open({
+            type: 'error',
+            content: message,
+          });
+        };
         // dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
 
         if (user != {} as NewUser){
-            navigate("/registerSecond");
             dispatch(create(user));
+            dispatch(createUser({email, password, confirm_password}));
+            if (error === null && loading === "fulfilled"){
+                navigate("/registerSecond");
+            } else if (error !== null){
+              errorMessage(error.message);
+            }
         }
         
       };
@@ -40,6 +50,7 @@ export function Register(){
     return(
         <div className="login">
             <Navbar />
+            {contextHolder}
             <div className="container">
             <Row>
                 <Col span={12}><h1 className="loginText">Inregistreaza-te:</h1></Col>
@@ -73,7 +84,7 @@ export function Register(){
                 <h3 className="loginLabel">Confirm Parola:</h3>
                 <Form.Item
                   // label="Password"
-                  name="confirmPassword"
+                  name="confirm_password"
                   rules={[{ required: true, message: 'Please confirm your password!' }]}
                 >
                   <Input.Password />

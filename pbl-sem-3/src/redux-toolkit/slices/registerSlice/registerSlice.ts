@@ -5,11 +5,23 @@ import axios from 'axios'
 export interface NewUser{
     email: string;
     password: string;
-    confirmPassword: string;
+    confirm_password: string;
+}
+
+interface NewTutor{
+    first_name: string;
+    last_name: string;
+    location: string;
+}
+
+interface NewStudent{
+
 }
 
 interface RegisterState{
     newUser: NewUser;
+    newTutor: NewTutor;
+    newStudent: NewStudent;
     loading: string;
     token: string | null;
     error: SerializedError | null;
@@ -17,17 +29,29 @@ interface RegisterState{
 
 const initialState: RegisterState = {
     newUser: {} as NewUser,
+    newStudent: {} as NewStudent,
+    newTutor: {} as NewTutor,
     loading: '',
     token: '',
     error: null,
 }
 
-export const creation = createAsyncThunk('registerSlice/createUser', async(id: number) => {
-    return await axios.post(`https://jsonplaceholder.typicode.com/todos/${id}`).then((res) => {
-        return res.data;
+export const createUser = createAsyncThunk('registerSlice/createUser', 
+    async({email, password, confirm_password}: {email: string, password: string, confirm_password: string}) => {
+    return await axios.post(`http://127.0.0.1:8000/api/authen/register/register-user`, {email, password, confirm_password}).then((res) => {
+    console.log(res.data);    
+    return res.data;
 
     })
 })
+
+export const createTutor = createAsyncThunk('registerSlice/createTutor', 
+    async({first_name, last_name, location}: {first_name:string, last_name:string, location: string}) =>{
+        return await axios.post(`http://127.0.0.1:8000/api/authen/register/register-tutor`, {first_name, last_name, location}).then((res) => {
+            console.log(res.data);
+            return res.data;
+        })
+    })
 
 export const registerSlice = createSlice({
     name: 'register',
@@ -36,22 +60,17 @@ export const registerSlice = createSlice({
         create: (state: RegisterState, action: PayloadAction<NewUser>) => {
             state.newUser.email = action.payload.email;
             state.newUser.password = action.payload.password;
-            state.newUser.confirmPassword = action.payload.confirmPassword;
-        }
+            state.newUser.confirm_password = action.payload.confirm_password;
+        },
 
     },
     extraReducers:(builder)=>{
-        builder.addCase(creation.pending, (state) => {
+        builder.addCase(createUser.pending, (state) => {
           state.loading = 'pending';
-        }).addCase(creation.fulfilled, (state, payload) => {
+        }).addCase(createUser.fulfilled, (state, payload) => {
           state.loading = 'fullfilled';
-        //   if (payload.payload === )
-        //   // state.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
-        //   console.log(payload.non_field_errors === "The passwords do not coincide"){
-            
-        //   };
-          
-        }).addCase(creation.rejected, (state, payload) => {
+          sessionStorage.setItem('user-id', payload.payload['id']);
+        }).addCase(createUser.rejected, (state, payload) => {
           state.loading = 'idol';
           state.error = payload.error;
           console.log(payload.error.message);

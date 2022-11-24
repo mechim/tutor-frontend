@@ -4,6 +4,7 @@ import { loginSlice } from '../slices/loginSlice/loignSlice'
 import {forgotSlice} from '../slices/forgotPasswordSlice/forgotPasswordSlice'
 import {registerSlice} from '../slices/registerSlice/registerSlice'
 import {resetSlice} from '../slices/resetSlice/resetSlice'
+import {userSlice} from '../slices/userSlice/userSlice'
 // ...
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     register: registerSlice.reducer,
     forgot: forgotSlice.reducer,
     reset: resetSlice.reducer,
+    user: userSlice.reducer,
     // posts: postsReducer,
     // comments: commentsReducer,
     // users: usersReducer,

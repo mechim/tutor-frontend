@@ -24,14 +24,15 @@ function Navbar(){
             <Row className="navbar">
                     <Col span={10}></Col>
                     <Col span={14}>
-                        {user.isLogged ? <>
+                        {sessionStorage.getItem('is-logged')? <>
                         <div className="logedInNavbar">
                             <Link to="/"><Button className="navbar_buttons navbar_buttons_white"><b>Acas&#259;</b> </Button></Link>
                             <Link to="/catalog"  ><Button  className="navbar_buttons"><b>Catalog</b></Button></Link>
-                            <Tooltip className="avatarButtonNavbar" title="profile">
-                                <Button shape="circle" icon={<Avatar size={40} icon={<UserOutlined />} className="avatarNavbar"  />} />
-                            </Tooltip>
-                            <Link to ="/profileStudent"><h3>{user.email}</h3></Link>
+                            <Link to ="/cabinet">
+                                <Tooltip className="avatarButtonNavbar" title="profile">
+                                    <Button shape="circle" icon={<Avatar size={40} icon={<UserOutlined />} className="avatarNavbar"  />} />
+                                </Tooltip>
+                            </Link>
                         </div>
                         </> 
                         : <>

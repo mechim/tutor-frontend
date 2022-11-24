@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { create, creation} from "../../redux-toolkit/slices/registerSlice/registerSlice";
+import { create, createUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
 import "../Register/Register.css"
 import "./RegisterSecond.css"
 
@@ -12,9 +12,9 @@ export function RegisterSecond(){
     const {newUser, loading, token} = useAppSelector((state) => ({...state.register}))
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    useEffect(()=>{
-      dispatch(creation(1));
-    } ,[])
+    // useEffect(()=>{
+    //   dispatch(createUser(1));
+    // } ,[])
 
     let isStudent = false, isTutor = false;
 
@@ -26,7 +26,8 @@ export function RegisterSecond(){
             isStudent = false;
             isTutor = true;
         }
-        console.log(choice);
+        console.log(isStudent);
+        return {isStudent, isTutor};
         
     }
 
@@ -80,12 +81,49 @@ export function RegisterSecond(){
                     name="student"
                     rules={[{ required: false }]}
                     >
-                    <Button className="registerChoiceButton" onClick={() =>choose(1)}>Inregistreaza-te ca student</Button>
+                    <Button className="registerChoiceButton" onClick={() =>choose(1)}>Inregistreaza-te ca tutor</Button>
                     </Form.Item>
                     </Col>
                 </Row>
                
-                
+                {isStudent?  <>
+                    <Form form={form}>
+                        <h3 className="loginLabel">E-mail:</h3>
+                        <Form.Item
+                        // label="Username"
+                        name="email"
+                        rules={[{ required: true, message: 'Please input your email!' }]}
+                        >
+                        <Input />
+                        </Form.Item>
+                        <h3 className="loginLabel">Parola:</h3>
+                        <Form.Item
+                        // label="Password"
+                        name="password"
+                        rules={[{ required: true, message: 'Please input your password!' }]}
+                        >
+                        <Input.Password />
+                        </Form.Item>
+                        <h3 className="loginLabel">Confirm Parola:</h3>
+                        <Form.Item
+                        // label="Password"
+                        name="confirmPassword"
+                        rules={[{ required: true, message: 'Please confirm your password!' }]}
+                        >
+                        <Input.Password />
+                        </Form.Item>
+
+
+
+                        <Form.Item className="loginButtonContainer">
+                        <Button danger className="loginButton" type="primary" onClick={onFinish}>
+                            Submit
+                        </Button>
+                        </Form.Item>
+                    </Form>   
+                </> :
+                <></>
+                }
 
                 <Form.Item className="loginButtonContainer">
                   <Button danger className="loginButton" type="primary" onClick={onFinish}>
