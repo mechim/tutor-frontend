@@ -21,7 +21,7 @@ export function CatalogCard(){
                             <Rate style={{width: "500px"}} className="tutorRatting" disabled defaultValue={2} />
                             <br /> 
                             <h3>{lesson_format === 1 ? <>Online</> : <>Offline</>}</h3>
-                            <p>{profile.about_me}</p>
+                            {/* <p>{profile.about_me}</p> */}
                             <a href="/">Mai multe...</a>
                         </div>
                         <div className="catalogCardPrice">

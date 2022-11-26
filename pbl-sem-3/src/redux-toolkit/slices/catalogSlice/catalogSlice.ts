@@ -33,25 +33,42 @@ export interface CourseCard{
         lesson_format: number
     
 }
+interface Query{
+    subject: string,
+    lesson_format: string,
+    min: string,
+    max: string,
+    location: string;
+}
 
 interface CatalogState{
     tutorsArray: CourseCard[],
     loading:string,
     error: SerializedError |null,
+    query: Query;
 }
 
 
 const initialState: CatalogState = {
     tutorsArray: [],
     loading: '',
-    error: null
+    error: null,
+    query: {
+        subject: "",
+        lesson_format:"",
+        location: "",
+        min: "",
+        max: ""
+    } as Query,
 }
 
 export const displayCatalog = createAsyncThunk(
     'catalog/display', 
-   async () => {
-        return await axios.get(`http://127.0.0.1:8000/api/catalog/?subject=&format=&min=0&max=999`).then((res) => {
+   async ({subject, lesson_format, location, min, max} : {subject: string, lesson_format: string, location: string, min: string, max: string}) => {
+    console.log(`http://127.0.0.1:8000/api/catalog/?subject=` +subject+ `&lesson_format=`+lesson_format+`&location=`+location+`&min=`+min+`&max=`+max);
+        return await axios.get(`http://127.0.0.1:8000/api/catalog/?subject=` +subject+ `&lesson_format=`+lesson_format+`&location=`+location+`&min=`+min+`&max=`+max).then((res) => {
             console.log(res.data);
+            
             return res.data;
         })
    }
@@ -61,9 +78,31 @@ export const catalogSlice = createSlice({
     name: 'catalog',
     initialState,
     reducers:{
-        default :(state: CatalogState, action: PayloadAction<String>) =>{
+        getSubject :(state: CatalogState, action: PayloadAction<string>) =>{
+            state.query.subject = action.payload;
+        },
+        getFormat :(state: CatalogState, action: PayloadAction<string>) =>{
+            state.query.lesson_format = action.payload;
+            if (state.query.lesson_format === "1"){
+                state.query.location = "";
+            }
+        },
+        getLocation :(state: CatalogState, action: PayloadAction<string>) =>{
             console.log(action.payload);
-        }
+            if (state.query.lesson_format === "2"){
+                state.query.location = action.payload;
+            } else {
+                state.query.location = "";
+            }
+           
+        },
+        getMin:(state: CatalogState, action: PayloadAction<string>) =>{
+            state.query.min = action.payload;
+        },
+        getMax:(state: CatalogState, action: PayloadAction<string>) =>{
+            state.query.max = action.payload;
+        },
+        
     },
    extraReducers:(builder)=>{
     builder.addCase(displayCatalog.pending, (state) =>{
@@ -79,5 +118,5 @@ export const catalogSlice = createSlice({
    }
 })
 
-export const {} = catalogSlice.actions;
+export const {getSubject, getLocation, getFormat, getMin, getMax} = catalogSlice.actions;
 export default catalogSlice.reducer;

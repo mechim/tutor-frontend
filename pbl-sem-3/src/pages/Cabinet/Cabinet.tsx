@@ -8,11 +8,13 @@ export function Cabinet(){
 
     const dispatch = useAppDispatch();
     const {user} = useAppSelector((state) => ({...state.user}));
-    if (sessionStorage.getItem('user-token')){}
-    const token = sessionStorage.getItem('user-token')!;
+    if (sessionStorage.getItem('user-token')){
+        const token = sessionStorage.getItem('user-token')!;
     useEffect(() => {
         dispatch(userInfo(token));
     }, [])
+    }
+    
     
     const{profile_type} = user;
 

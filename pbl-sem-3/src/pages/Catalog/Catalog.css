@@ -33,3 +33,30 @@
 .catalogPagination{
     margin: 50px 0 50px 100px;
 }
+
+.ant-slider-rail{
+    background-color: #39140058;    
+}
+
+.ant-slider-track{
+    background-color:#391400;
+}
+
+.ant-slider:hover .ant-slider-rail{
+   background-color:#3914009d;
+}
+
+.ant-slider-handle.ant-tooltip-open{
+    border-color: #391400;
+}
+
+.ant-slider:hover .ant-slider-track{
+    background-color:#391400d3;
+}
+.antd-wave-shadow{
+    color: #a73b00;
+}
+
+.ant-slider-handle{
+    border: solid 2px #a73b00;
+}

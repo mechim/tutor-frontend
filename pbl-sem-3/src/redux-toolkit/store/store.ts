@@ -15,6 +15,7 @@ export const store = configureStore({
     forgot: forgotSlice.reducer,
     reset: resetSlice.reducer,
     user: userSlice.reducer,
+    catalog: catalogSlice.reducer,
     // posts: postsReducer,
     // comments: commentsReducer,
     // users: usersReducer,

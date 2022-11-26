@@ -20,8 +20,9 @@ export function Login(){
         const{email, password} = await form.getFieldsValue(); 
         const isLogged = true;
         const user = {email, password, isLogged};
-        dispatch(authentification({email, password}));
+        await dispatch(authentification({email, password}));
         dispatch(getUser(user));
+         
         navigate("/cabinet");
         
       };
