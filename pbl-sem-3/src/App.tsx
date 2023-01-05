@@ -16,6 +16,8 @@ import { Register } from './pages/Register/Register';
 import {Reset} from './pages/ResetPassword/ResetPassword'
 import {RegisterSecond} from './pages/RegisterSecond/RegisterSecond'
 import { EditProfileTutor } from './pages/EditProfileTutor/EditProfileTutor';
+import { AddCourse } from './pages/AddCourse/AddCourse';
+import { Tutor } from './pages/Tutor/Tutor';
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
         <Route path ='/reset' element={<Reset/>}/>
         <Route path = '/edit-tutor-profile' element={<EditProfileTutor/>}/>
         <Route path='/registerSecond' element={<RegisterSecond/>}/>
+        <Route path='/addCourse' element={<AddCourse/>}/>
+        <Route path='/tutor' element={<Tutor/>}/>
 
       </Routes>
     </Router> 

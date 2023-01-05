@@ -51,15 +51,22 @@ const initialState: userState = {
 }
 
 export const userInfo = createAsyncThunk(
-    'userSlice/userInfo', async(token: string) => {
+    'userSlice/userInfo', async(token:string) => {
      return await axios.get(`http://127.0.0.1:8000/api/cabinet/me`, {headers : {Authorization :'Token ' + token}}).then((res) => {
       console.log(res.data);
       return res.data;
     })
   })
 
-
-
+  
+export const createCourse = createAsyncThunk(
+    'userSlice/createCourse', async({token, price, lesson_format,location, subject} :{token:string, price: string, lesson_format:string, location: string, subject:string}) => {
+        return await axios.post(`http://127.0.0.1:8000/api/cabinet/me/add-new-course`,{price, lesson_format,location, subject},  {headers : {Authorization :'Token ' + token}} ).then((res) => {
+            console.log(res.data);
+            return res.data;
+        })
+    }
+)
 
 export const userSlice = createSlice({
     name: "user",initialState, reducers:{

@@ -31,11 +31,7 @@ export function Register(){
         if (user != {} as NewUser){
             dispatch(create(user));
             dispatch(createUser({email, password, confirm_password}));
-            if (error === null && loading === "fulfilled"){
-                navigate("/registerSecond");
-            } else if (error !== null){
-              errorMessage(error.message);
-            }
+            navigate("/registerSecond");
         }
         
       };

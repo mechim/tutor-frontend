@@ -12,7 +12,7 @@ const { Header, Footer, Sider, Content } = Layout;
 function Navbar(){
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
-    });
+    }, []);
 
     const {user} = useAppSelector((state) => ({...state.login}))
 

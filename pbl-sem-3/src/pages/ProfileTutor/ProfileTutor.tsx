@@ -28,15 +28,17 @@ export function ProfileTutor(){
             <div className="profileTop">
                 <Row>
                     <Col span={4}>
-                        <Avatar  size={100} icon={<UserOutlined />}  />
-                        
+                        {/* <Avatar  size={100} icon={<UserOutlined />}  /> */}
+                        <img style={{height:"100px", width:"100px", borderRadius:"50%"}}src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" />
+
                     </Col>
                 </Row>
                 
                     <h1 className="studentName">{first_name} {last_name}</h1>
+                    <Rate disabled defaultValue={rating_value!}></Rate>
 <hr />
                 <Row style={{marginBottom: "20px"}}>
-                <Col span={12}><Link to = "/editTutorProfile"><Button danger style={{background: "#391400", borderColor:"#391400"}}  type='primary' className="editeazaProfilulButton">Editeaza profilul</Button></Link></Col>
+                <Col span={12}><Link to = "/addCourse"><Button danger style={{background: "#391400", borderColor:"#391400"}}  type='primary' className="editeazaProfilulButton">Adauga curs</Button></Link></Col>
                     <Col span={12} style={{textAlign: "right"}}><h3 className="formatLectii">Formatul lectiilor: Offline ({location})</h3></Col>
 
                 </Row>

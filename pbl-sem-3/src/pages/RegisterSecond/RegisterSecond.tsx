@@ -1,10 +1,10 @@
-import { Input, Checkbox, Button, Form, notification, Spin, Steps, Row, Col   } from "antd";
+import { Input, Checkbox, Button, Form, notification, Spin, Steps, Row, Col, Radio, RadioChangeEvent   } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAppDispatch, useAppSelector } from "../../redux-toolkit/hooks/hooks";
-import { create, createUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
+import { create, createStudent, createTutor, createUser} from "../../redux-toolkit/slices/registerSlice/registerSlice";
 import "../Register/Register.css"
 import "./RegisterSecond.css"
 
@@ -12,36 +12,42 @@ export function RegisterSecond(){
     const {newUser, loading, token} = useAppSelector((state) => ({...state.register}))
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    const [profileType, setProfileType] = useState("");
+
     // useEffect(()=>{
     //   dispatch(createUser(1));
     // } ,[])
 
     let isStudent = false, isTutor = false;
 
-    const choose = async(choice: number) => {
-        if (choice === 0){
-            isStudent = true;
-            isTutor = false;
-        } else if (choice === 1){
-            isStudent = false;
-            isTutor = true;
-        }
-        console.log(isStudent);
-        return {isStudent, isTutor};
-        
-    }
-
+  const onChangeProfileType = (e: RadioChangeEvent) => {
+    setProfileType(e.target.value);
+  } 
    
-    const onFinish = async() => {
-        
-        if(isStudent){
-            navigate('/');
-        } else if (isTutor){
-            navigate('/catalog');   
-        }
-        // dispatch(create('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'));
-        
-      };
+  const onSubmitStudent = async() => {
+    const first_name = form.getFieldValue("first_name");
+    const last_name = form.getFieldValue("last_name");
+    const user_id = sessionStorage.getItem('user-id')!;
+    const phone_number = form.getFieldValue("phone_number");
+    const profile_type = "2";
+    await dispatch(createStudent({first_name, last_name, user_id, profile_type, phone_number}));  
+    navigate("/login");
+
+  }
+
+  const onSubmitTutor = async() => {
+    const first_name = form.getFieldValue("first_name");
+    const last_name = form.getFieldValue("last_name");
+    const location = form.getFieldValue("city");
+    const contact_mail = form.getFieldValue("contact_email");
+    const phone_number = form.getFieldValue("phone_number");
+    const user_id = sessionStorage.getItem('user-id')!;
+    const profile_type = "1";
+    await dispatch(createTutor({first_name, last_name, location, user_id, profile_type, contact_mail, phone_number}));
+    navigate("/login");
+    sessionStorage.removeItem('user-id');
+  }
     // console.log(user);
     const [form] = useForm();
     const { Step } = Steps;
@@ -64,74 +70,57 @@ export function RegisterSecond(){
                 <Step  />
             </Steps>
             
-            <Form form={form}>
+           
                 <h3 className="loginLabel" style={{margin: "10px 0 20px 0"}}>Tipuri de utilizatori</h3>
-                <Row style={{margin: "10px 0 50px 0"}}>
-                    <Col span={12} style={{textAlign : 'center'}}> 
-                    <Form.Item
-                    // label="Username"
-                    name="tutor"
-                    rules={[{ required: false}]}
-                    >
-                        <Button className="registerChoiceButton" onClick={() =>choose(0)}>Inregistreaza-te ca student</Button>
-                    </Form.Item></Col>
-                    <Col span={12} style={{textAlign : 'center'}}>
-                        <Form.Item
-                    // label="Password"
-                    name="student"
-                    rules={[{ required: false }]}
-                    >
-                    <Button className="registerChoiceButton" onClick={() =>choose(1)}>Inregistreaza-te ca tutor</Button>
-                    </Form.Item>
-                    </Col>
+                <Row style={{margin: "10px 0 50px 0", textAlign: "center"}}>
+                <Radio.Group size="large" style={{margin: "auto", textAlign: "center"}} value={profileType} onChange={onChangeProfileType} >
+                    <Radio.Button value="1" style={{width:"300px", height: "50px", margin: "0 40px 0 0"}}>Tutor</Radio.Button>
+                    <Radio.Button value="2" style={{width:"300px", height: "50px", margin: "0 0 0 40px"}}>Student</Radio.Button>
+                </Radio.Group>
                 </Row>
-               
-                {isStudent?  <>
-                    <Form form={form}>
-                        <h3 className="loginLabel">E-mail:</h3>
-                        <Form.Item
-                        // label="Username"
-                        name="email"
-                        rules={[{ required: true, message: 'Please input your email!' }]}
-                        >
-                        <Input />
-                        </Form.Item>
-                        <h3 className="loginLabel">Parola:</h3>
-                        <Form.Item
-                        // label="Password"
-                        name="password"
-                        rules={[{ required: true, message: 'Please input your password!' }]}
-                        >
-                        <Input.Password />
-                        </Form.Item>
-                        <h3 className="loginLabel">Confirm Parola:</h3>
-                        <Form.Item
-                        // label="Password"
-                        name="confirmPassword"
-                        rules={[{ required: true, message: 'Please confirm your password!' }]}
-                        >
-                        <Input.Password />
-                        </Form.Item>
-
-
-
-                        <Form.Item className="loginButtonContainer">
-                        <Button danger className="loginButton" type="primary" onClick={onFinish}>
-                            Submit
-                        </Button>
-                        </Form.Item>
-                    </Form>   
-                </> :
-                <></>
-                }
-
-                <Form.Item className="loginButtonContainer">
-                  <Button danger className="loginButton" type="primary" onClick={onFinish}>
-                    Submit
-                  </Button>
-                </Form.Item>
-              </Form>
-            
+                {profileType ==="1"?<>
+                            <div style={{textAlign:"center"}}>
+                                <Form form ={form}>
+                                    <Form.Item name = "first_name">
+                                        <Input placeholder="First Name" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "last_name">
+                                        <Input placeholder="Last Name" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "city">
+                                        <Input placeholder="City" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "phone_number">
+                                        <Input placeholder="Phone Number" prefix="+373" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "contact_email">
+                                        <Input placeholder="Contact Email" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item>
+                                        <Button onClick={onSubmitTutor} danger type="primary">Salveaza</Button>
+                                    </Form.Item>
+                                </Form>
+                            </div>
+                </>:
+                
+                profileType === "2"?<>
+                            <div style={{textAlign:"center"}}>
+                                <Form form ={form}>
+                                    <Form.Item name = "first_name">
+                                        <Input placeholder="First Name" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "last_name">
+                                        <Input placeholder="Last Name" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item name = "phone_number">
+                                        <Input placeholder="Phone Number" prefix="+373" style={{ width: "300px"}} /> 
+                                    </Form.Item>
+                                    <Form.Item>
+                                        <Button onClick={onSubmitStudent} danger type="primary">Salveaza</Button>
+                                    </Form.Item>
+                                </Form>
+                            </div>
+                </> : null}
               
             </div>
             

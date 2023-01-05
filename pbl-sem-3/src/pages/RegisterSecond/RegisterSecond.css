@@ -33,3 +33,11 @@
 .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
     background-color: #391400;
 }
+
+.ant-input-affix-wrapper{
+    padding: 0;
+    background-color: #FDF0E9;
+    border-color: #391400;
+    border-radius: 5px;
+
+}

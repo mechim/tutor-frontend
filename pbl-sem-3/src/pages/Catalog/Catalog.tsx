@@ -42,13 +42,13 @@ export function Catalog(){
         dispatch(getLocation(location));
     }
 
-    const onChangeMin = (newValue:0 | 100 | 1000    ) => {
+    const onChangeMin = (newValue:0 | 100 | 1000 | null) => {
         console.log(String(newValue));
-        dispatch(getMin(newValue.toString()));
+        dispatch(getMin(newValue!.toString()));
     }
-    const onChangeMax = (newValue:0 | 300 | 1000 ) => {
+    const onChangeMax = (newValue:0 | 300 | 1000| null ) => {
         console.log(String(newValue));
-        dispatch(getMax(newValue.toString()));
+        dispatch(getMax(newValue!.toString()));
     }
     const submitFilters = () => {
         console.log("I submitted filters");

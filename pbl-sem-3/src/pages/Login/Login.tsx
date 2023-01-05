@@ -10,7 +10,7 @@ import { auth, authentification, getUser} from "../../redux-toolkit/slices/login
 import "./Login.css"
 
 export function Login(){
-    const {user, loading, token} = useAppSelector((state) => ({...state.login}))
+    const {user, loading, token, error} = useAppSelector((state) => ({...state.login}))
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [form] = useForm();
@@ -22,9 +22,12 @@ export function Login(){
         const user = {email, password, isLogged};
         await dispatch(authentification({email, password}));
         dispatch(getUser(user));
-         
-        navigate("/cabinet");
-        
+        if (error === null){
+          navigate("/catalog");
+        } else {
+          window.alert(error.message);
+        }
+          
       };
     
     // if(loading === "pending") return <Spin />

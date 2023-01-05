@@ -46,8 +46,16 @@ export const createUser = createAsyncThunk('registerSlice/createUser',
 })
 
 export const createTutor = createAsyncThunk('registerSlice/createTutor', 
-    async({first_name, last_name, location}: {first_name:string, last_name:string, location: string}) =>{
-        return await axios.post(`http://127.0.0.1:8000/api/authen/register/register-tutor`, {first_name, last_name, location}).then((res) => {
+    async({first_name, last_name, location, user_id, profile_type, contact_mail, phone_number}: {first_name:string, last_name:string, location: string, user_id: string, profile_type:string, contact_mail:string, phone_number: string}) =>{
+        return await axios.post(`http://127.0.0.1:8000/api/authen/register/register-tutor`, {first_name, last_name, location, user_id, profile_type, contact_mail, phone_number}).then((res) => {
+            console.log(res.data);
+            return res.data;
+        })
+    })
+
+export const createStudent = createAsyncThunk('registerSlice/createStudent', 
+    async({first_name, last_name, user_id, profile_type, phone_number}: {first_name:string, last_name:string, user_id: string, profile_type: string, phone_number: string}) =>{
+        return await axios.post(`http://127.0.0.1:8000/api/authen/register/register-student`, {first_name, last_name, user_id, profile_type, phone_number}).then((res) => {
             console.log(res.data);
             return res.data;
         })
