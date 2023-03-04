@@ -1,16 +1,4 @@
 # Tutor-Frontend
-The project is set up
-<p>Installed:</p>
-<ul>
-    <li>Vite</li>
-    <li>Ant Design</li>
-    <li>Redux Toolkit</li>
-    <li>Styled Components</li>
-    <li>Axios</li>
-</ul>
-
-<p>Will Need to Install (When connecting to backend)</p>
-
-<ul>
-    <li>React Router Dom</li>
-</ul>
+The front-end side of our university project
+<br><br>
+![image](https://user-images.githubusercontent.com/43859685/222917695-4f562eab-deb7-43e0-a726-974a0e5eec4c.png)
